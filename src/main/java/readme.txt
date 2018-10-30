@@ -42,6 +42,29 @@ Thread.isInterrupted()
 Thread.currentThread() //获取当前线程
 Thread.currentThread().getName() //获取线程的名字
 
+为了避免脏读,对于数据操作,需要将 设置值和读取值都进行同步.
+当一个线程执行的代码出现异常的时候,其所持有的所有锁会释放.
+
+同步代码块语法
+synch(Obj){ // 同步代码块
+	
+}
+
+synchronized (this) { // 等同于对象锁
+}
+
+synchronized (MyObject5ClassLock.class) { //等价于类锁
+}
+
+private Object lock = new Object();
+synch(lock){ // 等价于对象锁
+	
+}
+
+private static Object lock = new Object();
+synch(lock){ // 等价于类锁
+	
+}
 
 
 
